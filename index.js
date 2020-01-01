@@ -37,7 +37,7 @@ let winner;
     cardNodes.forEach((card) => {
         card.addEventListener('click', () => {
 
-            if(pickedArray.length < 2){
+            if(pickedArray.length < 2 && !isSameCards(cards, card, pickedArray[0])){
                 //
                 currentCard = card;
 
@@ -138,6 +138,9 @@ let winner;
         });
     });
 
+    function isSameCards (allCards, elem, prevCardName){
+        return allCards[elem.id.substr(1) - 1] === prevCardName;
+    }
 
 
 
